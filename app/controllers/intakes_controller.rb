@@ -1,8 +1,13 @@
 class IntakesController < ApplicationController
   before_action :set_intake, only: [:show, :edit, :update, :destroy]
-
-  # GET /intakes
-  # GET /intakes.json
+  
+  def search
+    patients = Patient.search(params[:ssn], params[:last_name])
+    respond_to do |format|
+      format.js{ render :js=>"load_patient_matches(#{patients.to_json})" }
+    end
+  end
+  
   def index
     @intakes = Intake.all
   end

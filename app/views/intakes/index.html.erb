@@ -1,67 +1,14 @@
-<h1>Listing intakes</h1>
+<h3>Search for a patient or create a new patient</h3>
+<%= form_tag search_path, :remote=>true do %>
+  SSN:<%= text_field_tag :ssn %>
+  <br />
+  or
+  <br />
+  Last Name: <%= text_field_tag :last_name %>
+  <br />
+  <%= submit_tag %>
+<% end %>
+<div id='results'>
 
-<table>
-  <thead>
-    <tr>
-      <th>Complaint 1</th>
-      <th>Complaint 2</th>
-      <th>Complaint 3</th>
-      <th>Illness history</th>
-      <th>Pain now</th>
-      <th>Least pain one week</th>
-      <th>Worst pain one week</th>
-      <th>Average pain last week</th>
-      <th>Pain duration</th>
-      <th>Pain timing</th>
-      <th>Context of pain</th>
-      <th>Modifying factors</th>
-      <th>Signs and sympotoms</th>
-      <th>General activity</th>
-      <th>Mood</th>
-      <th>Normal work</th>
-      <th>Sleep</th>
-      <th>Enjoyment</th>
-      <th>Concentration</th>
-      <th>Interaction with others</th>
-      <th>Current pain meds</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @intakes.each do |intake| %>
-      <tr>
-        <td><%= intake.complaint_1 %></td>
-        <td><%= intake.complaint_2 %></td>
-        <td><%= intake.complaint_3 %></td>
-        <td><%= intake.illness_history %></td>
-        <td><%= intake.pain_now %></td>
-        <td><%= intake.least_pain_one_week %></td>
-        <td><%= intake.worst_pain_one_week %></td>
-        <td><%= intake.average_pain_last_week %></td>
-        <td><%= intake.pain_duration %></td>
-        <td><%= intake.pain_timing %></td>
-        <td><%= intake.context_of_pain %></td>
-        <td><%= intake.modifying_factors %></td>
-        <td><%= intake.signs_and_sympotoms %></td>
-        <td><%= intake.general_activity %></td>
-        <td><%= intake.mood %></td>
-        <td><%= intake.normal_work %></td>
-        <td><%= intake.sleep %></td>
-        <td><%= intake.enjoyment %></td>
-        <td><%= intake.concentration %></td>
-        <td><%= intake.interaction_with_others %></td>
-        <td><%= intake.current_pain_meds %></td>
-        <td><%= link_to 'Show', intake %></td>
-        <td><%= link_to 'Edit', edit_intake_path(intake) %></td>
-        <td><%= link_to 'Destroy', intake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+</div>
 <%= link_to 'New Intake', new_intake_path %>

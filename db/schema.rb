@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20130630150453) do
 
+  create_table "addresses", force: true do |t|
+    t.string   "addr_one"
+    t.string   "addr_two"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "intakes", force: true do |t|
     t.string   "complaint_1"
     t.string   "complaint_2"
@@ -39,21 +50,11 @@ ActiveRecord::Schema.define(version: 20130630150453) do
     t.datetime "updated_at"
   end
 
-  create_table "addresses", force: true do |t|
-    t.string   "addr_one"
-    t.string   "addr_two"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "patients", force: true do |t|
     t.string   "last_name"
     t.string   "first_name"
     t.string   "middle_initial"
+    t.string   "email"
     t.string   "gender"
     t.integer  "height"
     t.integer  "weight"
