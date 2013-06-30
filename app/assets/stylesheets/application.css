@@ -20,3 +20,20 @@
   width:1200px;
   position:relative;
 }
+
+ul {
+   list-style-type: none;
+}
+
+.left{
+  float:left;
+}
+
+.right{
+  float:right;
+}
+
+.left li {
+  float:left;
+  margin-right:5px;
+}
