@@ -1,5 +1,12 @@
 PainClinic::Application.routes.draw do
-  root :to=>"users#index"
+  get "dashboard/index"
+  root :to=>"users#dashboard"
+  scope :path=>'users', :controller=>'users' do
+    get 'home'
+    get 'logout'
+    post 'login'
+  end
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
