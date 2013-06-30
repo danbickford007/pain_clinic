@@ -3,6 +3,27 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  def home
+
+  end
+
+  def login
+    user = User.find_by_email_and_passcode(params[:email], params[:passcode])
+    if user.present?
+      session[:email] = params[:email]
+      session[:id] = user.id
+      redirect_to dashboard_index_path
+    else
+      flash[:error] = "FAILED TO LOGIN"
+      redirect_to home_path
+    end
+  end
+
+  def logout
+    session[:email] = nil
+    redirect_to home_path
+  end
+
   def index
     @users = User.all
   end
