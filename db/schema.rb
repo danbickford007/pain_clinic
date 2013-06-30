@@ -13,6 +13,31 @@
 
 ActiveRecord::Schema.define(version: 20130630034759) do
 
+  create_table "addresses", force: true do |t|
+    t.string   "addr_one"
+    t.string   "addr_two"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patients", force: true do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_initial"
+    t.string   "gender"
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "ssn"
+    t.datetime "dob"
+    t.string   "marital_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "description"
     t.integer  "user_id"
