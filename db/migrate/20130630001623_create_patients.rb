@@ -1,0 +1,17 @@
+class CreatePatients < ActiveRecord::Migration
+  def change
+    create_table :patients do |t|
+      t.string :last_name
+      t.string :first_name
+      t.string :middle_initial
+      t.string :gender
+      t.integer :height
+      t.integer :weight
+      t.integer :ssn
+      t.datetime :dob
+      t.string :marital_status
+
+      t.timestamps
+    end
+  end
+end
