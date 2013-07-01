@@ -1,4 +1,6 @@
 PainClinic::Application.routes.draw do
+  resources :medical_equipments
+
   get "dashboard/index"
   root :to=>"users#dashboard"
   scope :path=>'users', :controller=>'users' do

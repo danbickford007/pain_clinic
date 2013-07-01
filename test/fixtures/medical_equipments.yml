@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  catheter: false
+  wheelchair: false
+  nebulizer: false
+  glasses: false
+  contacts: false
+  hearing_aid: false
+
+two:
+  catheter: false
+  wheelchair: false
+  nebulizer: false
+  glasses: false
+  contacts: false
+  hearing_aid: false

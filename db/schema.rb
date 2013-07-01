@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630034759) do
+ActiveRecord::Schema.define(version: 20130701003415) do
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -24,17 +24,37 @@ ActiveRecord::Schema.define(version: 20130630034759) do
     t.datetime "updated_at"
   end
 
+  create_table "medical_equipments", force: true do |t|
+    t.boolean  "catheter"
+    t.boolean  "wheelchair"
+    t.boolean  "nebulizer"
+    t.boolean  "glasses"
+    t.boolean  "contacts"
+    t.boolean  "hearing_aid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patients", force: true do |t|
     t.string   "last_name"
     t.string   "first_name"
     t.string   "middle_initial"
     t.string   "email"
     t.string   "gender"
-    t.decimal  "height",         precision: 10, scale: 0
+    t.float    "height"
     t.integer  "weight"
     t.integer  "ssn"
     t.date     "dob"
     t.string   "marital_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "patients", ["email"], name: "email_uniqueness", unique: true, using: :btree
+
+  create_table "patients_medical_equipments", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "medical_equipment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
