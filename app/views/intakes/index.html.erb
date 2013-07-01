@@ -1,0 +1,14 @@
+<h3>Search for a patient or create a new patient</h3>
+<%= form_tag search_path, :remote=>true do %>
+  SSN:<%= text_field_tag :ssn %>
+  <br />
+  or
+  <br />
+  Last Name: <%= text_field_tag :last_name %>
+  <br />
+  <%= submit_tag %>
+<% end %>
+<div id='results'>
+
+</div>
+<%= link_to 'New Intake', new_intake_path %>
