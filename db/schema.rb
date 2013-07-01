@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20130701003415) do
-=======
-ActiveRecord::Schema.define(version: 20130630231657) do
->>>>>>> 032a12a60c560bdd5d85aa9c0c8989c1a34ec0ff
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -28,7 +24,6 @@ ActiveRecord::Schema.define(version: 20130630231657) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "medical_equipments", force: true do |t|
     t.boolean  "catheter"
     t.boolean  "wheelchair"
@@ -36,7 +31,7 @@ ActiveRecord::Schema.define(version: 20130630231657) do
     t.boolean  "glasses"
     t.boolean  "contacts"
     t.boolean  "hearing_aid"
-=======
+
   create_table "intakes", force: true do |t|
     t.string   "complaint_1"
     t.string   "complaint_2"
@@ -73,7 +68,6 @@ ActiveRecord::Schema.define(version: 20130630231657) do
   create_table "pain_qualities", force: true do |t|
     t.string   "description"
     t.integer  "intake_id"
->>>>>>> 032a12a60c560bdd5d85aa9c0c8989c1a34ec0ff
     t.datetime "created_at"
     t.datetime "updated_at"
   end
