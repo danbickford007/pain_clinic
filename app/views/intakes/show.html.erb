@@ -19,6 +19,10 @@
   <strong>Illness history:</strong>
   <%= @intake.illness_history %>
 </p>
+<p>
+  <strong>Pain Quality:</strong><br />
+  <%= raw pain_quality_list(@intake) %>
+</p>
 
 <p>
   <strong>Pain now:</strong>

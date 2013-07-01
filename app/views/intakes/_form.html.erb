@@ -1,3 +1,4 @@
+<h3>Intake for <%= @patient.to_s %></h3>
 <%= form_for(@intake) do |f| %>
   <% if @intake.errors.any? %>
     <div id="error_explanation">
@@ -26,6 +27,9 @@
   <div class="field">
     <%= f.label :illness_history %><br>
     <%= f.text_field :illness_history %>
+  </div>
+  <div class="field">
+    <%= raw pain_quality_boxes %>
   </div>
   <div class="field">
     <%= f.label :pain_now %><br>
