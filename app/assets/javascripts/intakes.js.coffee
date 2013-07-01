@@ -9,4 +9,4 @@ window.load_patient_matches = (patients) ->
   else
     $("#results").html('')
     for patient in patients
-      $("#results").append("<a href='/intakes/new'>"+patient['first_name']+"</a><br />")
+      $("#results").append("<a href='/intakes/new?patient_id=#{patient['id']}'>"+patient['first_name']+"</a><br />")

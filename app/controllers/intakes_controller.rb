@@ -19,6 +19,7 @@ class IntakesController < ApplicationController
 
   # GET /intakes/new
   def new
+    @patient = Patient.find(params[:patient_id])
     @intake = Intake.new
   end
 
@@ -30,7 +31,7 @@ class IntakesController < ApplicationController
   # POST /intakes.json
   def create
     @intake = Intake.new(intake_params)
-
+    @intake.create_pain_qualities(params)
     respond_to do |format|
       if @intake.save
         format.html { redirect_to @intake, notice: 'Intake was successfully created.' }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630150453) do
+ActiveRecord::Schema.define(version: 20130630231657) do
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20130630150453) do
     t.integer  "concentration"
     t.integer  "interaction_with_others"
     t.string   "current_pain_meds"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "intakes_pain_qualities", force: true do |t|
+    t.integer  "intake_id"
+    t.integer  "pain_quality_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pain_qualities", force: true do |t|
+    t.string   "description"
+    t.integer  "intake_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
