@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130630034759) do
     t.string   "middle_initial"
     t.string   "email"
     t.string   "gender"
-    t.integer  "height"
+    t.decimal  "height",         precision: 10, scale: 0
     t.integer  "weight"
     t.integer  "ssn"
     t.date     "dob"

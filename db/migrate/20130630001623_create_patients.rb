@@ -6,7 +6,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :middle_initial
       t.string :email
       t.string :gender
-      t.integer :height
+      t.decimal :height
       t.integer :weight
       t.integer :ssn
       t.date :dob
