@@ -1,0 +1,105 @@
+<h3>Intake for <%= @patient.to_s %></h3>
+<%= form_for(@intake) do |f| %>
+  <% if @intake.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@intake.errors.count, "error") %> prohibited this intake from being saved:</h2>
+
+      <ul>
+      <% @intake.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :complaint_1 %><br>
+    <%= f.text_field :complaint_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :complaint_2 %><br>
+    <%= f.text_field :complaint_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :complaint_3 %><br>
+    <%= f.text_field :complaint_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :illness_history %><br>
+    <%= f.text_field :illness_history %>
+  </div>
+  <div class="field">
+    <%= raw pain_quality_boxes %>
+  </div>
+  <div class="field">
+    <%= f.label :pain_now %><br>
+    <%= f.number_field :pain_now %>
+  </div>
+  <div class="field">
+    <%= f.label :least_pain_one_week %><br>
+    <%= f.number_field :least_pain_one_week %>
+  </div>
+  <div class="field">
+    <%= f.label :worst_pain_one_week %><br>
+    <%= f.number_field :worst_pain_one_week %>
+  </div>
+  <div class="field">
+    <%= f.label :average_pain_last_week %><br>
+    <%= f.number_field :average_pain_last_week %>
+  </div>
+  <div class="field">
+    <%= f.label :pain_duration %><br>
+    <%= f.text_field :pain_duration %>
+  </div>
+  <div class="field">
+    <%= f.label :pain_timing %><br>
+    <%= f.text_field :pain_timing %>
+  </div>
+  <div class="field">
+    <%= f.label :context_of_pain %><br>
+    <%= f.text_field :context_of_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :modifying_factors %><br>
+    <%= f.text_field :modifying_factors %>
+  </div>
+  <div class="field">
+    <%= f.label :signs_and_sympotoms %><br>
+    <%= f.text_field :signs_and_sympotoms %>
+  </div>
+  <div class="field">
+    <%= f.label :general_activity %><br>
+    <%= f.number_field :general_activity %>
+  </div>
+  <div class="field">
+    <%= f.label :mood %><br>
+    <%= f.number_field :mood %>
+  </div>
+  <div class="field">
+    <%= f.label :normal_work %><br>
+    <%= f.number_field :normal_work %>
+  </div>
+  <div class="field">
+    <%= f.label :sleep %><br>
+    <%= f.number_field :sleep %>
+  </div>
+  <div class="field">
+    <%= f.label :enjoyment %><br>
+    <%= f.number_field :enjoyment %>
+  </div>
+  <div class="field">
+    <%= f.label :concentration %><br>
+    <%= f.number_field :concentration %>
+  </div>
+  <div class="field">
+    <%= f.label :interaction_with_others %><br>
+    <%= f.number_field :interaction_with_others %>
+  </div>
+  <div class="field">
+    <%= f.label :current_pain_meds %><br>
+    <%= f.text_field :current_pain_meds %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
