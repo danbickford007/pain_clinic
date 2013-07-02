@@ -1,6 +1,6 @@
 class PatientsMedicalEquipment < ActiveRecord::Base
 
-belongs_to :patient
-belongs_to :medical_equipment
+has_and_belongs_to_many :patient
+has_and_belongs_to_many :medical_equipment
 
 end

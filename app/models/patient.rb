@@ -1,6 +1,7 @@
 class Patient < ActiveRecord::Base
 
 has_and_belongs_to_many :addresses
+belongs_to :patients_medical_equipment
 validates :last_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
 validates :first_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
 validates :email, :presence=> true, :uniqueness=> { :case_sensitive => false }, :format => { :with => /[a-zA-Z1-9]+@{1}[a-zA-Z1-9]+.{1}(com|org|biz|net|edu|gov)/ } 
