@@ -7,11 +7,9 @@ class Intake < ActiveRecord::Base
     ids = []
     params.each do |k,v|
       if k.include? "Pain_quality"
-        ids << k.split("Pain_quality_")[1]
+        self.pain_qualities << PainQuality.find(k.split("Pain_quality_")[1].to_i)
       end
     end
-    self.pain_quality_ids = ids if ids.present?
-    self.save
   end
 
 end
