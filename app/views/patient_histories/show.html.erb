@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @patient_history.alcohol %>
+</p>
+
+<p>
+  <strong>Drinks per day:</strong>
+  <%= @patient_history.drinks_per_day %>
+</p>
+
+<p>
+  <strong>Years been drnking:</strong>
+  <%= @patient_history.years_been_drnking %>
+</p>
+
+<p>
+  <strong>Smoking:</strong>
+  <%= @patient_history.smoking %>
+</p>
+
+<p>
+  <strong>Packs per day:</strong>
+  <%= @patient_history.packs_per_day %>
+</p>
+
+<p>
+  <strong>Years been smoking:</strong>
+  <%= @patient_history.years_been_smoking %>
+</p>
+
+<p>
+  <strong>Illicit drugs:</strong>
+  <%= @patient_history.illicit_drugs %>
+</p>
+
+<p>
+  <strong>Religion:</strong>
+  <%= @patient_history.religion %>
+</p>
+
+<p>
+  <strong>Sibling description:</strong>
+  <%= @patient_history.sibling_description %>
+</p>
+
+<p>
+  <strong>Surgical history:</strong>
+  <%= @patient_history.surgical_history %>
+</p>
+
+<p>
+  <strong>Medical history:</strong>
+  <%= @patient_history.medical_history %>
+</p>
+
+<p>
+  <strong>Allergies:</strong>
+  <%= @patient_history.allergies %>
+</p>
+
+<p>
+  <strong>Allergy description:</strong>
+  <%= @patient_history.allergy_description %>
+</p>
+
+<%= link_to 'Edit', edit_patient_history_path(@patient_history) %> |
+<%= link_to 'Back', patient_histories_path %>
