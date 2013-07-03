@@ -1,0 +1,37 @@
+<h1>Listing medical_equipments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Catheter</th>
+      <th>Wheelchair</th>
+      <th>Nebulizer</th>
+      <th>Glasses</th>
+      <th>Contacts</th>
+      <th>Hearing aid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medical_equipments.each do |medical_equipment| %>
+      <tr>
+        <td><%= medical_equipment.catheter %></td>
+        <td><%= medical_equipment.wheelchair %></td>
+        <td><%= medical_equipment.nebulizer %></td>
+        <td><%= medical_equipment.glasses %></td>
+        <td><%= medical_equipment.contacts %></td>
+        <td><%= medical_equipment.hearing_aid %></td>
+        <td><%= link_to 'Show', medical_equipment %></td>
+        <td><%= link_to 'Edit', edit_medical_equipment_path(medical_equipment) %></td>
+        <td><%= link_to 'Destroy', medical_equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medical equipment', new_medical_equipment_path %>
