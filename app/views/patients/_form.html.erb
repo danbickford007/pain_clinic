@@ -1,0 +1,50 @@
+<h1>New Patient</h1>
+
+ <%= form_for(@patient) do |f| %>
+     <% if @patient.errors.any? %>
+       <div id="error_explanation">
+         <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient_history from being saved:</h2>
+   
+         <ul>
+         <% @patient.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  <div style='width:1000px' class="field">
+    <span>Last Name:<%= f.text_field :last_name %></span>
+    <span class='marginedLeft'>First name:<%= f.text_field :first_name %></span>
+    <span class='marginedLeft'>Middle Intitial:<%= f.text_field :middle_initial %></span>
+  </div>
+  <hr />
+    <div style='width:1000px' class="field">
+      <span>Email:<%= f.text_area :email %></span>
+      <span>Gender:<%= f.text_field  :gender %></span>
+    </div>
+    <div class="field">
+      <%= f.label :height %><br>
+      <%= f.number_field :height %>
+    </div>
+    <div class="field">
+      <%= f.label :weight %><br>
+      <%= f.number_field :weight %>
+   </div>
+    <div class="field">
+      <%= f.label :ssn %><br>
+     <%= f.number_field :ssn %>
+   </div>
+    <div class="field">
+      <%= f.label :dob %><br>
+     <%= f.text_area :dob %>
+   </div>
+    <div class="field">
+      <%= f.label :marital_status %><br>
+     <%= f.text_area :marital_status %>
+
+   </div>
+
+<%end%>
+
+
