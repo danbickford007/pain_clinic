@@ -1,5 +1,8 @@
 PainClinic::Application.routes.draw do
 
+  get "doctors_dashboard/index"
+  get "doctors_dashboard/new"
+  get "doctors_dashboard/create"
   scope :path=>'intakes', :controller=>'intakes' do
     post 'search'
   end
