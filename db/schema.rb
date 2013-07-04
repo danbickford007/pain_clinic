@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20130704015256) do
     t.integer  "height"
     t.integer  "weight"
     t.integer  "ssn"
-    t.datetime "dob"
+    t.date "dob"
     t.string   "marital_status"
     t.datetime "created_at"
     t.datetime "updated_at"
