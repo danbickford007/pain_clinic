@@ -14,7 +14,8 @@ class PatientHistoriesController < ApplicationController
 
   # GET /patient_histories/new
   def new
-    @patient_history = PatientHistory.new
+  @patient = Patient.new  
+  @patient_history = PatientHistory.new
   end
 
   # GET /patient_histories/1/edit
@@ -25,7 +26,6 @@ class PatientHistoriesController < ApplicationController
   # POST /patient_histories.json
   def create
     @patient_history = PatientHistory.new(patient_history_params)
-
     respond_to do |format|
       if @patient_history.save
         format.html { redirect_to @patient_history, notice: 'Patient history was successfully created.' }

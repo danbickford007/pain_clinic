@@ -14,6 +14,7 @@ class CreatePatientHistories < ActiveRecord::Migration
       t.text :medical_history
       t.boolean :allergies
       t.text :allergy_description
+      t.integer :patient_id
 
       t.timestamps
     end

@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20130702235728) do
     t.text     "medical_history"
     t.boolean  "allergies"
     t.text     "allergy_description"
+    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
