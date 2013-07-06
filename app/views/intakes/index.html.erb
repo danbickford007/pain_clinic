@@ -6,9 +6,9 @@
   <br />
   Last Name: <%= text_field_tag :last_name %>
   <br />
-  <%= submit_tag %>
+  <%= submit_tag 'search', :class=>'btn btn-primary' %>
 <% end %>
 <div id='results'>
 
 </div>
-<%= link_to 'New Intake', new_intake_path %>
+<%= link_to 'New Patient', intakes_path, :class => 'btn btn-primary' %>
