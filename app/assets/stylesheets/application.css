@@ -90,5 +90,6 @@ html body{
 
 .field ul li{
   float:left;
+  width:33%;
   margin-left:10px;
 }

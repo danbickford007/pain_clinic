@@ -12,21 +12,16 @@
     </div>
   <% end %>
 
-  <div style='width:1000px' class="field">
+  <div style='width:1200px' class="field">
     <ul>
       <li>Complaint 1:<%= f.text_field :complaint_1 %></li>
       <li>Complaint 2:<%= f.text_field :complaint_2 %></li>
       <li>Complaint 3:<%= f.text_field :complaint_3 %></li>
+      <li>Illness History:<%= f.text_field :illness_history %></li>
     </ul>
   </div>
-  <hr />
-  <div style='margin-bottom:80px' class="field">
-    <ul>
-      <li><%= f.label :illness_history %></li>
-      <li><%= f.text_field :illness_history %></li>
-    </ul>
-  </div>
-  <div class="field">
+  <br />
+  <div class="field" style='margin-top:100px'>
     <table id='pain'>
       <tbody>
         <%= raw pain_quality_boxes %>
@@ -34,7 +29,7 @@
     </table>
   </div>
   <hr />
-  <div style='margin-bottom:120px' class="field">
+  <div style='margin-bottom:150px' class="field">
     <ul>
       <li class='left'>Pain Now:<%= f.number_field :pain_now %></li>
       <li class='left'>Least Pain One Week:<%= f.number_field :least_pain_one_week %></li>
@@ -43,7 +38,7 @@
     </ul>
   </div>
   <hr />
-  <div class="field" style="margin-bottom:120px">
+  <div class="field" style="margin-bottom:150px">
     <ul>
       <li class='left'>Pain Duration:<%= f.text_field :pain_duration %></li>
       <li class='left'>Pain Timing:<%= f.text_field :pain_timing %></li>
@@ -52,7 +47,7 @@
     </ul>
   </div>
   <hr />
-  <div class="field" class="margin-bottom:120px">
+  <div class="field" style="margin-bottom:150px">
     <ul>
       <li class='left'>Signs and Symptoms:<%= f.text_field :signs_and_sympotoms %></li>
       <li class='left'>General Activity:<%= f.number_field :general_activity %></li>
@@ -60,7 +55,8 @@
       <li class='left'>Normal Work:<%= f.number_field :normal_work %></li>
     </ul>
   </div>
-  <div class="field" style='margin-bottom:120px'>
+  <hr />
+  <div class="field" style='margin-bottom:150px'>
     <ul>
       <li class='left'>Sleep:<%= f.number_field :sleep %></li>
       <li class='left'>Enjoyment:<%= f.number_field :enjoyment %></li>
@@ -68,7 +64,7 @@
     </ul>
   </div>
   <hr />
-  <div class="field" style='margin-bottom:120px'>
+  <div class="field" style='margin-bottom:150px'>
     <ul>
       <li class='left'>current_pain_meds:<%= f.text_field :current_pain_meds %></li>
       <li class='left'>interaction_with_others:<%= f.number_field :interaction_with_others %></li>
