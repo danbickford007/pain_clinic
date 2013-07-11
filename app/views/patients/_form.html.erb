@@ -1,4 +1,4 @@
-<h1>New Patient</h1>
+<h1>New Patient Form</h1>
 
  <%= form_for(@patient) do |f| %>
      <% if @patient.errors.any? %>
@@ -21,29 +21,54 @@
   <hr />
     <div style='width:1000px' class="field">
       <span>Email:<%= f.text_area :email %></span>
-      <span>Gender:<%= f.text_field  :gender %></span>
+      <span>Gender:<%= f.text_field  :gender %></span></span>
+      <span>DOB:<span><%= f.text_area :dob %></span></span>
     </div>
-    <div class="field">
-      <%= f.label :height %><br>
-      <%= f.number_field :height %>
-    </div>
-    <div class="field">
-      <%= f.label :weight %><br>
-      <%= f.number_field :weight %>
+    <hr />
+    <div style='width:1000px'class="field">
+      <span>Height:<%= f.number_field :height %></span>
+      <span>Weight:<%= f.number_field :weight  %></span>
+      <span>SSN:<%= f.number_field :ssn  %>
+      <span>Marital Status<%= f.text_area :marital_status  %></span>
+    <hr />
+    <div style='width:1000px' class="field">
+    <%= f.fields_for :patient_histories do |ff|  %> 
+      <span>Alcohol?<%= ff.check_box :alcohol  %></span>
+      <span>Drinks per Day<%= ff.number_field :drinks_per_day  %></span>
+      <span>Years been Drinking<%= ff.number_field :years_been_drinking  %></span>
    </div>
-    <div class="field">
-      <%= f.label :ssn %><br>
-     <%= f.number_field :ssn %>
+   <hr />
+  <div style="width:1000px" class="field">
+      <span>Smoking?<%= ff.check_box :smoking %></span>
+      <span>Packs Per Day<%= ff.number_field :packs_per_day %></span>
+      <span>Years Been Smoking<%= ff.number_field :years_been_smoking %></span>
    </div>
-    <div class="field">
-      <%= f.label :dob %><br>
-     <%= f.text_area :dob %>
-   </div>
-    <div class="field">
-      <%= f.label :marital_status %><br>
-     <%= f.text_area :marital_status %>
+   <hr />
+  <div style="width:1000px" class="field">
+      <span>Illicit Drugs<%= ff.text_area :illicit_drugs %></span>
+      <span>Religion<%= ff.text_area :religion %></span>
+      <span>Siblings?<%= ff.text_area :siblings %></span>
+  </div>
+  <hr />
+  <div style="width:1000px" class="field">
+      <span>Medical History<%= ff.text_area :medical_history  %></span>
+      <span>Surgical History<%= ff.text_area :surgical_history %></span> 
+  </div>
+  <hr />
+  <div style="width:1000px" class="field">
+    <span>Allergies?<%= ff.check_box :allergies %></span>
+    <span>Allergy Description<%= ff.text_area :allergy_description %></span>
+  </div>
+   <hr />
+  <div class="actions">
+    <%= ff.submit %>
+  </div>
 
-   </div>
+
+<%end%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 
 <%end%>
 

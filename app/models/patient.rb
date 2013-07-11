@@ -2,6 +2,8 @@ class Patient < ActiveRecord::Base
 
 has_and_belongs_to_many :addresses
 has_one :patients_medical_equipment
+has_one :patient_history, :dependent=>:destroy
+
 
 validates :last_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
 validates :first_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }

@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+ # before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
     @patient = Patient.all
@@ -10,6 +10,7 @@ class PatientsController < ApplicationController
 
   def new
   @patient = Patient.new  
+  @patient.patient_history
   end
 
   # GET /patients/1/edit
@@ -19,7 +20,8 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(patient_params)
+    @patient = Patient.new(params[:id])
+    @patient_history = PatientHistory.new(params[:id])
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient history was successfully created.' }

@@ -58,6 +58,11 @@ ul {
   margin-left:15px;
 }
 
+.textBoxSize{
+  width:100px;
+  height:20px;
+}
+
 html body{
   color:white;
   background-image:url('metal.png');

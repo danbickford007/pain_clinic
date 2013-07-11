@@ -1,6 +1,7 @@
 PainClinic::Application.routes.draw do
-  resources :patient_histories
-  resources :patients
+  resources :patients 
+    resources :patient_histories
+ 
   resources :medical_equipments
   scope :path=>'intakes', :controller=>'intakes' do
     post 'search'
