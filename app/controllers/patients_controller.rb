@@ -21,7 +21,7 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(params[:id])
-    @patient_history = PatientHistory.new(params[:id])
+    @patient_history = @patient.patient_histories.build(params[:patient_history])
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient history was successfully created.' }
