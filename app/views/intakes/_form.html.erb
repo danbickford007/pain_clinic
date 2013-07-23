@@ -12,62 +12,63 @@
     </div>
   <% end %>
 
-  <div style='width:1000px' class="field">
-    <span>Complaint 1:<%= f.text_field :complaint_1 %></span>
-    <span class='marginedLeft'>Complaint 2:<%= f.text_field :complaint_2 %></span>
-    <span class='marginedLeft'>Complaint 3:<%= f.text_field :complaint_3 %></span>
-  </div>
-  <hr />
-  <div class="field">
-    <%= f.label :illness_history %><br>
-    <%= f.text_field :illness_history %>
-  </div>
-  <hr />
-  <div class="field">
-    <%= raw pain_quality_boxes %>
-  </div>
-  <hr />
   <div style='width:1200px' class="field">
-    <span>Pain Now:<%= f.number_field :pain_now %></span>
-    <span class='marginedLeft'>Least Pain One Week:<%= f.number_field :least_pain_one_week %></span>
-    <span class='marginedLeft'>Worst Pain One Week:<%= f.number_field :worst_pain_one_week %></span><br />
-    <span>Average Pain Last Week:<%= f.number_field :average_pain_last_week %></span>
+    <ul>
+      <li>Complaint 1:<%= f.text_field :complaint_1 %></li>
+      <li>Complaint 2:<%= f.text_field :complaint_2 %></li>
+      <li>Complaint 3:<%= f.text_field :complaint_3 %></li>
+      <li>Illness History:<%= f.text_field :illness_history %></li>
+    </ul>
+  </div>
+  <br />
+  <div class="field" style='margin-top:100px'>
+    <table id='pain'>
+      <tbody>
+        <%= raw pain_quality_boxes %>
+      </tbody>
+    </table>
   </div>
   <hr />
-  <div class="field">
-    Pain Duration:<%= f.text_field :pain_duration %>
-    <span class='marginedLeft'>Pain Timing:<%= f.text_field :pain_timing %></span>
-  </div>
-  <div class="field">
-    Context of Pain:<%= f.text_field :context_of_pain %>
-    <span class='marginedLeft'>Modifying Factors:<%= f.text_field :modifying_factors %></span>
-  </div>
-  <hr />
-  <div class="field">
-    Signs and Symptoms:<%= f.text_field :signs_and_sympotoms %>
-    <span class='marginedLeft'>General Activity:<%= f.number_field :general_activity %></span>
+  <div style='margin-bottom:150px' class="field">
+    <ul>
+      <li class='left'>Pain Now:<%= f.number_field :pain_now %></li>
+      <li class='left'>Least Pain One Week:<%= f.number_field :least_pain_one_week %></li>
+      <li class='left'>Worst Pain One Week:<%= f.number_field :worst_pain_one_week %></li>
+      <li class='left'>Average Pain Last Week:<%= f.number_field :average_pain_last_week %></li>
+    </ul>
   </div>
   <hr />
-  <div class="field">
-    Mood:<%= f.number_field :mood %>
-    <span class='marginedLeft'>Normal Work:<%= f.number_field :normal_work %></span>
+  <div class="field" style="margin-bottom:150px">
+    <ul>
+      <li class='left'>Pain Duration:<%= f.text_field :pain_duration %></li>
+      <li class='left'>Pain Timing:<%= f.text_field :pain_timing %></li>
+      <li class='left'>Context of Pain:<%= f.text_field :context_of_pain %></li>
+      <li class='left'>Modifying Factors:<%= f.text_field :modifying_factors %></li>
+    </ul>
   </div>
   <hr />
-  <div class="field">
-    Sleep:<%= f.number_field :sleep %>
-    <span class='marginedLeft'>Enjoyment:<%= f.number_field :enjoyment %></span>
+  <div class="field" style="margin-bottom:150px">
+    <ul>
+      <li class='left'>Signs and Symptoms:<%= f.text_field :signs_and_sympotoms %></li>
+      <li class='left'>General Activity:<%= f.number_field :general_activity %></li>
+      <li class='left'>Mood:<%= f.number_field :mood %></li>
+      <li class='left'>Normal Work:<%= f.number_field :normal_work %></li>
+    </ul>
   </div>
   <hr />
-  <div class="field">
-    <%= f.label :concentration %><br>
-    <%= f.number_field :concentration %>
-    <%= f.label :interaction_with_others %><br>
-    <%= f.number_field :interaction_with_others %>
+  <div class="field" style='margin-bottom:150px'>
+    <ul>
+      <li class='left'>Sleep:<%= f.number_field :sleep %></li>
+      <li class='left'>Enjoyment:<%= f.number_field :enjoyment %></li>
+      <li class='left'>concentration:<%= f.number_field :concentration %></li>
+    </ul>
   </div>
   <hr />
-  <div class="field">
-    <%= f.label :current_pain_meds %><br>
-    <%= f.text_field :current_pain_meds %>
+  <div class="field" style='margin-bottom:150px'>
+    <ul>
+      <li class='left'>current_pain_meds:<%= f.text_field :current_pain_meds %></li>
+      <li class='left'>interaction_with_others:<%= f.number_field :interaction_with_others %></li>
+    </ul>
   </div>
   <div class="actions">
     <%= f.submit %>
