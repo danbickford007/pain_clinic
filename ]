@@ -31,17 +31,19 @@
       <span>SSN:<%= f.number_field :ssn  %>
       <span>Marital Status<%= f.text_area :marital_status  %></span>
     <hr />
+    <div style='width:1000px' class="field">
     <%= f.fields_for :patient_histories do |ff|  %> 
 
-     <div style='width:1000px'>
-     <span>Alcohol?<%= ff.check_box :alcohol %></span>
-      <div id="drinks_per_day"><span>Drinks per Day<%= ff.number_field :drinks_per_day %></span></div>
-      <span>Years been Drinking<%= ff.number_field :years_been_drinking  %></span></div>
+
+      <span>Alcohol?<%= ff.check_box :alcohol  %></span>
+      <span>Drinks per Day<%= ff.number_field :drinks_per_day  %></span>
+      <span>Years been Drinking<%= ff.number_field :years_been_drinking  %></span>
+   </div>
    <hr />
-  <div style="width:1000px">
-     <span>Smoking?<div id="smoke"><%= ff.check_box :smoking %></span></div>
-      <div id="smoking"><span>Packs Per Day<%= ff.number_field :packs_per_day %></span>
-      <span>Years Been Smoking<%= ff.number_field :years_been_smoking %></span></div>
+  <div style="width:1000px" class="field">
+      <span>Smoking?<%= ff.check_box :smoking %></span>
+      <span>Packs Per Day<%= ff.number_field :packs_per_day %></span>
+      <span>Years Been Smoking<%= ff.number_field :years_been_smoking %></span>
    </div>
    <hr />
   <div style="width:1000px" class="field">

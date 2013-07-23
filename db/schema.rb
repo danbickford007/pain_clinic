@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130702235728) do
+ActiveRecord::Schema.define(version: 20130704015256) do
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -103,10 +103,11 @@ ActiveRecord::Schema.define(version: 20130702235728) do
     t.float    "height"
     t.integer  "weight"
     t.integer  "ssn"
-    t.date     "dob"
+    t.date "dob"
     t.string   "marital_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status_id"
   end
 
   add_index "patients", ["email"], name: "email_uniqueness", unique: true, using: :btree
@@ -125,6 +126,12 @@ ActiveRecord::Schema.define(version: 20130702235728) do
     t.datetime "updated_at"
   end
 
+  create_table "statuses", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "passcode"
@@ -133,3 +140,4 @@ ActiveRecord::Schema.define(version: 20130702235728) do
   end
 
 end
+
