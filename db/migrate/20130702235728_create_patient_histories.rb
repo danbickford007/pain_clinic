@@ -3,7 +3,7 @@ class CreatePatientHistories < ActiveRecord::Migration
     create_table :patient_histories do |t|
       t.boolean :alcohol
       t.integer :drinks_per_day
-      t.integer :years_been_drnking
+      t.integer :years_been_drinking
       t.boolean :smoking
       t.integer :packs_per_day
       t.integer :years_been_smoking
