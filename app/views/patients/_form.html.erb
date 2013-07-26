@@ -1,32 +1,32 @@
 <h1>New Patient Form</h1>
 
  <%= form_for(@patient) do |f| %>
-     <% if @patient.errors.any? %>
-       <div id="error_explanation">
-         <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient_history from being saved:</h2>
-   
-         <ul>
-         <% @patient.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
+   <% if @patient.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient_history from being saved:</h2>
+ 
+       <ul>
+       <% @patient.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+      </ul>
+    </div>
+  <% end %>
   
   <table style="width:1000px">
-  <tr>
-    <td> Last Name: <%= f.text_field :last_name %></td>
-    <td> First name:<%= f.text_field :first_name %></td>
-    <td> Middle Intitial:<%= f.text_field :middle_initial %></td>
-  </tr>
+    <tr>
+      <td> Last Name: <%= f.text_field :last_name %></td>
+      <td> First name:<%= f.text_field :first_name %></td>
+      <td> Middle Intitial:<%= f.text_field :middle_initial %></td>
+    </tr>
   </table>
   <hr />
   <table style="width:1000px">
-  <tr>
+    <tr>
       <td> Email: <%= f.text_field :email %></td>
       <td> Marital Status: <%= f.text_field  :marital_status %></td>
       <td> DOB: <%= f.text_field :dob %></td>
-  </tr/>
+    </tr/>
   </table>
   <hr />
   <table style="width:1000px">
@@ -37,7 +37,7 @@
       <td> Gender <%= f.text_field :gender  %></td>
    </tr>
   </table>
-    <hr />
+  <hr />
   <h3>Social / Family History</h3>  
     <%= f.fields_for :patient_history do |ff|  %> 
   <table style="width:1000px">  
@@ -47,38 +47,36 @@
      <td> Years been Drinking <%= ff.number_field :years_been_drinking  %></td>
    </tr>
   </table>
-   <hr />
+  <hr />
   <table style="width:1000px"> 
-  <tr>
-    <td> Smoking <%= ff.check_box :smoking %></td>
-    <td> Packs Per Day<%= ff.number_field :packs_per_day %></td>
-    <td> Years Been Smoking <%= ff.number_field :years_been_smoking %></td>
+   <tr>
+     <td> Smoking <%= ff.check_box :smoking %></td>
+     <td> Packs Per Day<%= ff.number_field :packs_per_day %></td>
+     <td> Years Been Smoking <%= ff.number_field :years_been_smoking %></td>
   </tr>
   </table>
-   <hr />
+  <hr />
   <table style="width:1000px">
-    <tr>
+   <tr>
      <td> Illicit Drugs <%= ff.text_area :illicit_drugs %></td>
      <td> Religion <%= ff.text_area :religion %></td>
      <td> Siblings <%= ff.text_area :sibling_description %></td>
-    </tr>
+   </tr>
   </table>
   <hr />
-
-
   <table style="width:1000px" >
-  <tr>
-  <thead style="text-align:center">
-  <th><h4>Past Medical History:</h4></th>
-   <th><h4>Past Surgical History:</h4></th>
-  </thead>
-  </tr>
-  <tbody style="text-align:center">
-  <tr>
+    <tr>
+     <thead style="text-align:center">
+      <th><h4>Past Medical History:</h4></th>
+      <th><h4>Past Surgical History:</h4></th>
+     </thead>
+   </tr>
+    <tbody style="text-align:center">
+   <tr>
     <td ><%= ff.text_area :medical_history %></td>
     <td><%= ff.text_area :surgical_history %></td> 
-  </tr>
-  </tbody>
+   </tr>
+    </tbody>
   </table>
 
 
