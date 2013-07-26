@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704015256) do
+ActiveRecord::Schema.define(version: 20130725181411) do
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -20,6 +20,33 @@ ActiveRecord::Schema.define(version: 20130704015256) do
     t.string   "state"
     t.string   "zip"
     t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "diseases", force: true do |t|
+    t.string   "alcohol_abuse"
+    t.string   "allergies"
+    t.string   "anemia"
+    t.string   "arthritis"
+    t.string   "asthma"
+    t.string   "bladder_infection"
+    t.string   "bleeding_tendency"
+    t.string   "chicken_pox"
+    t.string   "colitis"
+    t.string   "gout"
+    t.string   "hay_fever"
+    t.string   "heart_attack"
+    t.string   "hepatitis"
+    t.string   "high_blood_pressure"
+    t.string   "nervous_breakdown"
+    t.string   "radiation_therapy"
+    t.string   "rheumatic_fever"
+    t.string   "sexually_transmitted_disease"
+    t.string   "sickle_cell_anemia"
+    t.string   "stomach_ulcers"
+    t.string   "suicide_attempt"
+    t.string   "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,17 +84,6 @@ ActiveRecord::Schema.define(version: 20130704015256) do
     t.datetime "updated_at"
   end
 
-  create_table "medical_equipments", force: true do |t|
-    t.boolean  "catheter"
-    t.boolean  "wheelchair"
-    t.boolean  "nebulizer"
-    t.boolean  "glasses"
-    t.boolean  "contacts"
-    t.boolean  "hearing_aid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pain_qualities", force: true do |t|
     t.string   "description"
     t.integer  "intake_id"
@@ -78,7 +94,7 @@ ActiveRecord::Schema.define(version: 20130704015256) do
   create_table "patient_histories", force: true do |t|
     t.boolean  "alcohol"
     t.integer  "drinks_per_day"
-    t.integer  "years_been_drnking"
+    t.integer  "years_been_drinking"
     t.boolean  "smoking"
     t.integer  "packs_per_day"
     t.integer  "years_been_smoking"
@@ -100,23 +116,26 @@ ActiveRecord::Schema.define(version: 20130704015256) do
     t.string   "middle_initial"
     t.string   "email"
     t.string   "gender"
-    t.float    "height"
+    t.decimal  "height",         precision: 3, scale: 0
     t.integer  "weight"
     t.integer  "ssn"
-    t.date "dob"
+    t.date     "dob"
     t.string   "marital_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status_id"
   end
 
-  add_index "patients", ["email"], name: "email_uniqueness", unique: true, using: :btree
-
   create_table "patients_medical_equipments", force: true do |t|
-    t.integer  "patient_id"
-    t.integer  "medical_equipment_id"
+    t.boolean  "catheter"
+    t.boolean  "wheelchair"
+    t.boolean  "nebulizer"
+    t.boolean  "glasses"
+    t.boolean  "contacts"
+    t.boolean  "hearing_aid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "patient_id",  null: false
   end
 
   create_table "roles", force: true do |t|
@@ -140,4 +159,3 @@ ActiveRecord::Schema.define(version: 20130704015256) do
   end
 
 end
-

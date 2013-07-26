@@ -13,59 +13,217 @@
       </div>
     <% end %>
   
-  <div style='width:1000px' class="field">
-    <span>Last Name:<%= f.text_field :last_name %></span>
-    <span class='marginedLeft'>First name:<%= f.text_field :first_name %></span>
-    <span class='marginedLeft'>Middle Intitial:<%= f.text_field :middle_initial %></span>
-  </div>
+  <table style="width:1000px">
+  <tr>
+    <td> Last Name: <%= f.text_field :last_name %></td>
+    <td> First name:<%= f.text_field :first_name %></td>
+    <td> Middle Intitial:<%= f.text_field :middle_initial %></td>
+  </tr>
+  </table>
   <hr />
-    <div style='width:1000px' class="field">
-      <span>Email:<%= f.text_area :email %></span>
-      <span>Gender:<%= f.text_field  :gender %></span></span>
-      <span>DOB:<span><%= f.text_area :dob %></span></span>
-    </div>
+  <table style="width:1000px">
+  <tr>
+      <td> Email: <%= f.text_field :email %></td>
+      <td> Marital Status: <%= f.text_field  :marital_status %></td>
+      <td> DOB: <%= f.text_field :dob %></td>
+  </tr/>
+  </table>
+  <hr />
+  <table style="width:1000px">
+   <tr>
+      <td> Height: <%= f.number_field :height, :size=> 5 %></td>
+      <td> Weight: <%= f.number_field :weight  %></td>
+      <td> SSN: <%= f.number_field :ssn  %></td>
+      <td> Gender <%= f.text_field :gender  %></td>
+   </tr>
+  </table>
     <hr />
-    <div style='width:1000px'class="field">
-      <span>Height:<%= f.number_field :height %></span>
-      <span>Weight:<%= f.number_field :weight  %></span>
-      <span>SSN:<%= f.number_field :ssn  %>
-      <span>Marital Status<%= f.text_area :marital_status  %></span>
-    <hr />
-    <%= f.fields_for :patient_histories do |ff|  %> 
+  <h3>Social / Family History</h3>  
+    <%= f.fields_for :patient_history do |ff|  %> 
+  <table style="width:1000px">  
+   <tr>
+     <td> Alcohol <%= ff.check_box :alcohol %></td>
+     <td> Drinks per Day <%= ff.number_field :drinks_per_day %></td>
+     <td> Years been Drinking <%= ff.number_field :years_been_drinking  %></td>
+   </tr>
+  </table>
+   <hr />
+  <table style="width:1000px"> 
+  <tr>
+    <td> Smoking <%= ff.check_box :smoking %></td>
+    <td> Packs Per Day<%= ff.number_field :packs_per_day %></td>
+    <td> Years Been Smoking <%= ff.number_field :years_been_smoking %></td>
+  </tr>
+  </table>
+   <hr />
+  <table style="width:1000px">
+    <tr>
+     <td> Illicit Drugs <%= ff.text_area :illicit_drugs %></td>
+     <td> Religion <%= ff.text_area :religion %></td>
+     <td> Siblings <%= ff.text_area :sibling_description %></td>
+    </tr>
+  </table>
+  <hr />
 
-     <div style='width:1000px'>
-     <span>Alcohol?<%= ff.check_box :alcohol %></span>
-      <div id="drinks_per_day"><span>Drinks per Day<%= ff.number_field :drinks_per_day %></span></div>
-      <span>Years been Drinking<%= ff.number_field :years_been_drinking  %></span></div>
-   <hr />
-  <div style="width:1000px">
-     <span>Smoking?<div id="smoke"><%= ff.check_box :smoking %></span></div>
-      <div id="smoking"><span>Packs Per Day<%= ff.number_field :packs_per_day %></span>
-      <span>Years Been Smoking<%= ff.number_field :years_been_smoking %></span></div>
-   </div>
-   <hr />
-  <div style="width:1000px" class="field">
-      <span>Illicit Drugs<%= ff.text_area :illicit_drugs %></span>
-      <span>Religion<%= ff.text_area :religion %></span>
-      <span>Siblings?<%= ff.text_area :siblings %></span>
-  </div>
+
+  <table style="width:1000px" >
+  <tr>
+  <thead style="text-align:center">
+  <th><h4>Past Medical History:</h4></th>
+   <th><h4>Past Surgical History:</h4></th>
+  </thead>
+  </tr>
+  <tbody style="text-align:center">
+  <tr>
+    <td ><%= ff.text_area :medical_history %></td>
+    <td><%= ff.text_area :surgical_history %></td> 
+  </tr>
+  </tbody>
+  </table>
+
+
+
   <hr />
-  <div style="width:1000px" class="field">
-      <span>Medical History<%= ff.text_area :medical_history  %></span>
-      <span>Surgical History<%= ff.text_area :surgical_history %></span> 
-  </div>
+  <table style="width:1000px">
+    <tr>
+    <td> Allergies <%= ff.check_box :allergies %></td>
+    <td> Allergy Description <%= ff.text_area :allergy_description %></td>
+   </tr> 
+  </table>
+
+  <%end%>
   <hr />
-  <div style="width:1000px" class="field">
-    <span>Allergies?<%= ff.check_box :allergies %></span>
-    <span>Allergy Description<%= ff.text_area :allergy_description %></span>
-  </div>
+  
+ <span style="font-weight:bold"> Please check any that apply:<span>
+
+
+   <%= f.fields_for :patients_medical_equipment do |equipment|   %>
+    <table style="width:1000px" >
+     <tr>
+      <td><span> Catheter <%= equipment.check_box :catheter %></span></td>
+      <td><span> Wheelchair <%= equipment.check_box :wheelchair %></span></td>
+      <td><span> Nebulizer <%= equipment.check_box :nebulizer %></span></td>
+      <td><span> Glasses <%= equipment.check_box :glasses %></span></td>
+      <td><span> Contacts <%= equipment.check_box :contacts %></span></td>
+      <td><span> Hearing Aid <%= equipment.check_box :hearing_aid %></span></td>
+    </table>
+
+  <%end%>
+  <hr />
+
+  <%= f.fields_for :disease do |disease|  %>
+
+   <table border="1" style="width:1000px" >
+     <tr>
+      <tr>
+        <td><span>Alcohol Abuse</span> </td>
+        <td><span> Y <%= disease.radio_button :alcohol_abuse, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :alcohol_abuse, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :alcohol_abuse, "F" %></span></td>
+        <td><span>Chicken Pox</span></td>
+        <td><span> Y <%= disease.radio_button :chicken_pox, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :chicken_pox, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :chicken_pox, "F" %></span></td>
+        <td><span>Nervous Breakdown </span></td>
+        <td><span> Y <%= disease.radio_button :nervous_breakdown, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :nervous_breakdown, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :nervous_breakdown, "F" %></span></td>
+      </tr>
+    </tr>
+     <tr>
+        <td><span>Allergies</span></td>
+        <td><span> Y <%= disease.radio_button :allergies, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :allergies, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :allergies, "F" %></span></td>
+        <td><span> Colitis </span></td>
+        <td><span> Y <%= disease.radio_button :colitis, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :colitis, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :colitis, "F" %></span></td>
+        <td><span>Radiation Therapy </span></td>
+        <td><span> Y <%= disease.radio_button :radiation_therapy, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :radiation_therapy, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :radiation_therapy, "F" %></span></td>
+    </tr>
+     <tr>
+        <td><span> Anemia </span></td>
+        <td><span> Y <%= disease.radio_button :anemia, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :anemia, "N" %></span></td>
+        <td><span> F<%= disease.radio_button :anemia, "F" %></span></td>
+        <td><span> Gout </span></td>
+        <td><span> Y <%= disease.radio_button :gout, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :gout, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :gout, "F" %></span></td>
+        <td><span> Rheumatic Fever </span></td>
+        <td><span> Y <%= disease.radio_button :rheumatic_fever, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :rheumatic_fever, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :rheumatic_fever, "F" %></span></td>
+    </tr>
+     <tr>
+        <td><span> Arthritis </span></td>
+        <td><span> Y <%= disease.radio_button :arthritis, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :arthritis, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :arthritis, "F" %></span></td>
+        <td><span> Hay Fever </span></td>
+        <td><span> Y <%= disease.radio_button :hay_fever, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :hay_fever, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :hay_fever, "F" %></span></td>
+        <td><span> Sexually Transmitted Disease </span></td>
+        <td><span> Y <%= disease.radio_button :sexually_transmitted_disease, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :sexually_transmitted_disease, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :sexually_transmitted_disease, "F" %></span></td>
+    </tr>
+     <tr>
+        <td><span> Asthma </span></td>
+        <td><span> Y <%= disease.radio_button :asthma, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :asthma, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :asthma, "F" %></span></td>
+        <td><span> Heart Attack </span></td>
+        <td><span> Y <%= disease.radio_button :heart_attack, "Y" %></span></td>
+        <td><span> N<%= disease.radio_button :heart_attack, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :heart_attack, "F" %></span></td>
+        <td><span> Sickle Cell Anemia </span></td>
+        <td><span> Y <%= disease.radio_button :sickle_cell_anemia, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :sickle_cell_anemia, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :sickle_cell_anemia, "F" %></span></td>
+    </tr>
+     <tr>
+        <td><span> Bladder Infection </span></td>
+        <td><span> Y <%= disease.radio_button :bladder_infection, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :bladder_infection, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :bladder_infection, "F" %></span></td>
+        <td><span> Hepatitis</span></td>
+        <td><span> Y <%= disease.radio_button :hepatitis, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :hepatitis, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :hepatitis, "F" %></span></td>
+        <td><span> Stomach Ulcers </span></td>
+        <td><span> Y <%= disease.radio_button :stomach_ulcers, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :stomach_ulcers, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :stomach_ulcers, "F" %></span></td>
+    </tr>
+     <tr>
+        <td><span> Bleeding Tendency </span></td>
+        <td><span> Y <%= disease.radio_button :bleeding_tendency, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :bleeding_tendency, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :bleeding_tendency, "F" %></span></td>
+        <td><span> High Blood Pressure </span></td>
+        <td><span> Y <%= disease.radio_button :high_blood_pressure, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :high_blood_pressure, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :high_blood_pressure, "F" %></span></td>
+        <td><span> Suicide Attempt </span></td>
+        <td><span> Y <%= disease.radio_button :suicide_attempt, "Y" %></span></td>
+        <td><span> N <%= disease.radio_button :suicide_attempt, "N" %></span></td>
+        <td><span> F <%= disease.radio_button :suicide_attempt, "F" %></span></td>
+    </tr>
+  </table>
+
+  <%end%>
    <hr />
   <div class="actions">
-    <%= ff.submit %>
+    <%= f.submit %>
   </div>
 
 
-<%end%>
+  
 
 <%end%>
 

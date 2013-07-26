@@ -28,6 +28,9 @@ ul {
   float:left;
 }
 
+.center{
+  float:center;
+}
 .right{
   float:right;
 }
@@ -92,4 +95,10 @@ html body{
   float:left;
   width:33%;
   margin-left:10px;
+
+}
+
+#distribute {
+  width:100%;
+
 }

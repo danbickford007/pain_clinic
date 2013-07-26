@@ -1,8 +1,6 @@
 PainClinic::Application.routes.draw do
+
   resources :patients 
-    resources :patient_histories
- 
-  resources :medical_equipments
 
   get "doctors_dashboard/index"
   get "doctors_dashboard/new"

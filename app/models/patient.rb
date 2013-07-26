@@ -1,9 +1,15 @@
 class Patient < ActiveRecord::Base
 
 has_and_belongs_to_many :addresses
-has_one :patients_medical_equipment
-has_one :patient_history, :dependent=>:destroy
 
+has_one :patients_medical_equipment, :dependent=>:destroy
+accepts_nested_attributes_for :patients_medical_equipment, :allow_destroy=>true
+
+has_one :patient_history, :dependent=>:destroy
+accepts_nested_attributes_for :patient_history, :allow_destroy => true
+
+has_one :disease, :dependent=> :destroy
+accepts_nested_attributes_for :disease, :allow_destroy => true
 
 validates :last_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
 validates :first_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
