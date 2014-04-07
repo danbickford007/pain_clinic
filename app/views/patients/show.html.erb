@@ -1,0 +1,143 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient Last Name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong>Patient First Name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Patient Middle Initial:</strong>
+  <%= @patient.middle_initial %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @patient.email %>
+</p>
+<p>
+  <strong>Gender:</strong><br />
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @patient.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @patient.weight %>
+</p>
+
+<p>
+  <strong>SSN:</strong>
+  <%= @patient.ssn %>
+</p>
+
+<p>
+  <strong>DOB:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Marital Status:</strong>
+  <%= @patient.marital_status %>
+</p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @patient.patient_history.alcohol %>
+</p>
+
+<p>
+  <strong>Drinks Per Day:</strong>
+  <%= @patient.patient_history.drinks_per_day %>
+</p>
+
+<p>
+  <strong>Years Been Drinking:</strong>
+  <%= @patient.patient_history.years_been_drinking %>
+</p>
+
+<p>
+  <strong>Smoking?:</strong>
+  <%= @patient.patient_history.smoking %>
+</p>
+
+<p>
+  <strong>Packs Per Day:</strong>
+  <%= @patient.patient_history.packs_per_day %>
+</p>
+
+<p>
+  <strong>Years Been Smoking:</strong>
+  <%= @patient.patient_history.years_been_smoking %>
+</p>
+
+<p>
+  <strong>Illicit Drugs:</strong>
+  <%= @patient.patient_history.illicit_drugs %>
+</p>
+
+<p>
+  <strong>Religion:</strong>
+  <%= @patient.patient_history.religion %>
+</p>
+
+<p>
+  <strong>Siblings:</strong>
+  <%= @patient.patient_history.sibling_description %>
+</p>
+
+<p>
+  <strong>Surgical History:</strong>
+  <%= @patient.patient_history.surgical_history %>
+</p>
+
+<p>
+  <strong>Medical History:</strong>
+  <%= @patient.patient_history.medical_history %>
+</p>
+
+<p>
+  <strong>Allergies?:</strong>
+  <%= @patient.patient_history.allergies  %>
+</p>
+<p>
+  <strong>Allergy Description:</strong>
+  <%= @patient.patient_history.allergy_description %>
+</p>
+<p>
+  <strong>Use Catheter?:</strong>
+  <%= @patient.patients_medical_equipment.catheter %>
+</p>
+
+<p>
+  <strong>Use Wheelchair?:</strong>
+  <%= @patient.patients_medical_equipment.wheelchair %>
+</p>
+<p>
+  <strong>Use Nebulizer?:</strong>
+  <%= @patient.patients_medical_equipment.nebulizer %>
+</p>
+<p>
+  <strong>Use Contacts?:</strong>
+  <%= @patient.patients_medical_equipment.contacts %>
+</p>
+<p>
+  <strong>Use Glasses?:</strong>
+  <%= @patient.patients_medical_equipment.glasses %>
+</p>
+<p>
+  <strong>Use HearingAid?:</strong>
+  <%= @patient.patients_medical_equipment.hearing_aid %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

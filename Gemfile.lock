@@ -67,6 +67,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.7)
     mysql2 (0.3.11)
+    nested_form (0.3.2)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -148,6 +149,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  nested_form
   rails (= 4.0.0)
   rspec-rails
   sass-rails (~> 4.0.0)

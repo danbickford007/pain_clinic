@@ -1,5 +1,7 @@
 PainClinic::Application.routes.draw do
 
+  resources :patients 
+
   get "doctors_dashboard/index"
   get "doctors_dashboard/new"
   get "doctors_dashboard/create"
@@ -8,7 +10,6 @@ PainClinic::Application.routes.draw do
   end
 
   resources :intakes
-
   get "dashboard/index"
   root :to=>"users#dashboard"
   scope :path=>'users', :controller=>'users' do
