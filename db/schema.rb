@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20130727031919) do
     t.boolean  "hearing_aid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "patient_id",  null: false
+    t.string   "patient_id"
   end
 
   create_table "roles", force: true do |t|

@@ -10,6 +10,7 @@ accepts_nested_attributes_for :patient_history, :allow_destroy => true
 
 has_one :disease, :dependent=> :destroy
 accepts_nested_attributes_for :disease, :allow_destroy => true
+belongs_to :status
 
 validates :last_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }
 validates :first_name, :presence=> true, :length=> { :minimum => 1, :maximum => 50 }

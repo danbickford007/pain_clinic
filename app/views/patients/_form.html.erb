@@ -44,14 +44,14 @@
    
   <table style="width:1000px; border-style:solid" valign="middle">
    <tr>
-      <th class= "center"><%= ff.label :alcohol, "Do you drink alcohol?"  %></th>
-      <th class= "center"><%= ff.label :drinks_per_day, "How many drinks per day?"%></th>
-      <th class= "center"><%= ff.label :years_been_drinking, "How many years have you been drinking?" %></th>
+      <th class= "center" ><%= ff.label :alcohol, "Do you drink alcohol?"  %></th>
+      <th class= "center" ><%= ff.label :drinks_per_day, "How many drinks per day?"%></th>
+      <th class= "center" ><%= ff.label :years_been_drinking, "How many years have you been drinking?" %></th>
   </tr>
    <tr>
-     <td valign= "top" style="text-align:center"><%= ff.check_box :alcohol %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :drinks_per_day, :class=> "input-mysize", :maxlength=>2  %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_drinking, :class=> "input-mysize", :maxlength=>2 %></td>
+     <td valign= "top" style="text-align:center"><%= ff.check_box :alcohol, :id=>"alcohol_input" %></td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :drinks_per_day, :id=>"alcohol_chg", :class=> "input-mysize", :maxlength=>2  %></td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_drinking, :id=>"alcohol_chg", :class=> "input-mysize", :maxlength=>2 %></td>
    </tr>
    <tr>
      <th class= "center"><%= ff.label :smoking, "Do you smoke?"  %></th>

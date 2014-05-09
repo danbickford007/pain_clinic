@@ -20,18 +20,15 @@ class PatientsController < ApplicationController
   end
 
   def new
-  @patient = Patient.new
-  @patient.build_patient_history
-  @patient.build_patients_medical_equipment
-  @patient.build_disease
+    @patient = Patient.new
+    @patient.build_patient_history
+    @patient.build_patients_medical_equipment
+    @patient.build_disease
   end
 
-  # GET /patients/1/edit
   def edit
   end
 
-  # POST /patients
-  # POST /patients.json
   def create
     @patient = Patient.create(patient_params)
     
@@ -46,8 +43,6 @@ class PatientsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /patient_histories/1
-  # PATCH/PUT /patient_histories/1.json
   def update
 
     @patient = Patient.find(params[:id])
@@ -62,8 +57,6 @@ class PatientsController < ApplicationController
     end
   end
 
-  # DELETE /patient/1
-  # DELETE /patient/1.json
   def destroy
     @patient.destroy
     respond_to do |format|
@@ -73,12 +66,10 @@ class PatientsController < ApplicationController
   end
 
   private
-     #Use callbacks to share common setup or constraints between actions.
     def set_patient
       @patient = Patient.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
 params.require(:patient).permit(:last_name, :first_name, :middle_initial, :email, :dob, :ssn, :height, :weight, :gender, :marital_status,:patient_history_attributes => [:id,:alcohol, :drinks_per_day, :years_been_drinking,:smoking,:packs_per_day, :years_been_smoking, :illicit_drugs, :religon,:sibling_description,:surgical_history,:medical_history,:allergies,:allergy_description,:patient_id,:status_id], :patients_medical_equipment_attributes => [:catheter,:wheelchair,:nebulizer,:glasses,:contacts,:hearing_aid], :disease_attributes=> [:alcohol_abuse, :allergies,:anemia,:arthritis,:asthma,:bladder_infection,:bleeding_tendency,:chicken_pox,:colitis,:gout,:hay_fever,:heart_attack,:hepatitis,:high_blood_pressure,:nervous_breakdown,:radiation_therapy,:rheumatic_fever,:sexually_transmitted_disease,:sickle_cell_anemia,:stomach_ulcers,:suicide_attempt] )
   end
