@@ -2,14 +2,14 @@
   <h3>Patients Waiting</h3>
   <% cache do %>
     <% @waiting.each do |p| %>
-      <%= link_to p.first_name %><br />
+      <div style='font-size: large'><%= link_to p.first_name+' '+p.last_name, patient_path(p.id) %></div><br />
     <% end %>
   <% end %>
   <hr />
   <h3>Patients In Room</h3>
   <% cache do %>
     <% @in_process.each do |p| %>
-      <%= link_to p.first_name %><br />
+      <div style='font-size: large'><%= link_to p.first_name+' '+p.last_name, patient_path(p.id) %></div><br />
     <% end %>
   <% end %>
 </div>
