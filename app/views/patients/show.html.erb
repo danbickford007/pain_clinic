@@ -24,7 +24,6 @@
   <strong>Gender:</strong><br />
   <%= @patient.gender %>
 </p>
-
 <p>
   <strong>Height:</strong>
   <%= @patient.height %>
@@ -145,5 +144,5 @@
   <%= @patient.patients_medical_equipment.hearing_aid %>
 </p>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Edit', edit_patient_path(@patient), :class => 'btn btn-primary', :style => 'width: 120px;'  %> |
+<%= link_to 'Back', patients_path, :class => 'btn btn-primary', :style => 'width: 120px;'  %>

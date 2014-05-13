@@ -10,3 +10,4 @@ window.load_patient_matches = (patients) ->
     $("#results").html('')
     for patient in patients
       $("#results").append("<div class='availPatient'><a href='/intakes/new?patient_id=#{patient['id']}'>"+patient['first_name']+"</a></div><br />")
+      

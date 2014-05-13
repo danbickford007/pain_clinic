@@ -29,10 +29,19 @@ validates :dob, presence: true
     patients += where(:ssn=>ssn)
     patients += where(:last_name=>last_name)
     patients.uniq
+    binding.pry
   end
 
   def to_s
     "#{first_name} #{last_name}"
+  end
+
+ def status_message
+    if status_id.nil? || status_id == 1
+      "Patient is Waiting"
+    else
+      "Patient is with the Dr."
+    end
   end
 
 

@@ -1,20 +1,21 @@
-
-
-<h1 class ='center'>Select Workstation</h1>
+<div style='width:800px'>
+<h1 class ='center' style="text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">Select Workstation  <div class="right"><%= image_tag 'medical_logo.jpg' %></div></h1>
   <div class="btn-group btn-group-vertical" style="float:left">
 	  	<ul>
 		  <li><%= link_to 'Intake', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
 		  <li><%= link_to 'Patient', new_patient_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
 		  <li><%= link_to 'Doctor', doctors_dashboard_index_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
-		  <li><%= link_to 'Bathroom A', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
+		  <li><%= link_to 'Reports', patient_reports_index_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
 		  <li><%= link_to 'Labratory A', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
 		  <li><%= link_to 'Kitchen', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
 		  <li><%= link_to 'Backyard', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;' %></li>
-			</ul>
+		</ul>
   </div>
-<div style="float:left"><%= image_tag('office.jpg', :style=>'margin: 20px 20px 20px 20px') %></div>
+<div><%= image_tag('office.jpg', :style=>'margin: 20px 20px 20px 20px') %></div>
 
 
-<%= pie_chart({"medical_supplies"=>25, "office_supplies" =>10, "computer_supplies"=>15, "labor"=>25, "lunch"=>25})  %>
-
- 
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<div style="foat:left">
+<%= pie_chart({"medical_supplies"=>25, "office_supplies" =>13, "computer_supplies"=>12, "labor"=>25, "lunch"=>25})  %>
+</div>
+ </div>

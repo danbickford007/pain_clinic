@@ -1,0 +1,34 @@
+<div class="left"><%= image_tag 'medical_logo.jpg' %></div>
+<h1 class="center" style="text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">Substances Used by Patients</h1>
+<table border="5" style="width:1400px">
+	<col width="140">
+	<thead>
+		<tr style="background-color:blue">
+			<th class="row">Patient name</th>
+			<th class="row">Drinks per day</th>
+			<th class="row">Years drinking</th>
+			<th class="row">Packs per day</th>
+			<th class="row">Years smoking</th>
+			<th class="row">Illicit drugs</th>
+			<th class="row">Allergies</th>
+			<th class="row">Allergy description</th>
+		</tr>
+	</thead>
+	<tbody class="report_data">
+		<tr >
+			<% @patient_substances.each do |patient| %>
+			<td><%= patient.last_name.capitalize+', '+patient.first_name.capitalize %></td>
+			<td class="center"><%= patient.drinks_per_day %></td>
+			<td class="center"><%= patient.years_been_drinking %></td>
+			<td class="center"><%= patient.packs_per_day %></td>
+			<td class="center"><%= patient.years_been_smoking %></td>
+			<td><%= patient.illicit_drugs.capitalize.empty? ? 'N/A' : patient.illicit_drugs.capitalize %></td>
+			<td class="center"><%= patient.allergies == 1 ? 'YES' : 'NO' %></td>
+			<td><%= patient.allergy_description.capitalize %></td>
+		<tr>
+				<% end %>	
+	</tbody>
+</table>
+<br />
+
+<%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary', :style => 'width: 120px;'  %>

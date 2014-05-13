@@ -48,7 +48,7 @@
             <ul class="nav">
               <%= user_link %>
               <li><%= link_to "Home", dashboard_index_path  %></li>
-              <li><%= link_to "Refresh", "/path2"  %></li>
+              <li><%= link_to "Refresh", dashboard_index_path  %></li>
               <li><%= link_to "Logout", logout_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -65,7 +65,7 @@
         </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; Telecomservicebureau.com 2014</p>
       </footer>
 
     </div> <!-- /container -->
@@ -75,6 +75,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
+
   </body>
 </html>

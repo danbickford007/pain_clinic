@@ -1,4 +1,4 @@
-<h1>New Patient Sign-Up</h1><br>
+<h1 style="text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">New Patient Sign-Up</h1><br>
 
  <%= form_for(@patient) do |f| %>
    <% if @patient.errors.any? %>
@@ -42,27 +42,27 @@
     
   <%= f.fields_for :patient_history do |ff|  %> 
    
-  <table style="width:1000px; border-style:solid" valign="middle">
+  <table style="width:1000px"; valign="middle">
    <tr>
-      <th class= "center" ><%= ff.label :alcohol, "Do you drink alcohol?"  %></th>
-      <th class= "center" ><%= ff.label :drinks_per_day, "How many drinks per day?"%></th>
-      <th class= "center" ><%= ff.label :years_been_drinking, "How many years have you been drinking?" %></th>
-  </tr>
-   <tr>
-     <td valign= "top" style="text-align:center"><%= ff.check_box :alcohol, :id=>"alcohol_input" %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :drinks_per_day, :id=>"alcohol_chg", :class=> "input-mysize", :maxlength=>2  %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_drinking, :id=>"alcohol_chg", :class=> "input-mysize", :maxlength=>2 %></td>
+    <th style="text-align:left"><%= ff.label :alcohol, "Do you drink alcohol?" %></th>
+    <th class= "center"><%= ff.label :drinks_per_day, "How many drinks per day?", :id=>"daily_drinks_label"%></th>
+    <th class= "center"><%= ff.label :years_been_drinking, "How many years have you been drinking?", :id=>"yearly_drinks_label" %></th>
    </tr>
    <tr>
-     <th class= "center"><%= ff.label :smoking, "Do you smoke?"  %></th>
-     <th class= "center"><%= ff.label :packs_per_day, "How many packs per day?"  %></th>
-     <th class= "center"><%= ff.label :years_been_smoking, "How many years have you been smoking?"  %></th>
-  </tr>
+     <td valign= "top" style="text-align:left"><%= ff.check_box :alcohol %></td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :drinks_per_day, :class=> "input-mysize", :maxlength=>2, :id=>"daily_drinks"  %></td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_drinking, :id=>"yearly_drinks", :class=> "input-mysize", :maxlength=>2 %></td>
+   </tr>
    <tr>
-     <td valign= "top" style= "text-align:center"><%= ff.check_box :smoking %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :packs_per_day, :class=> "input-mysize", :maxlength=>1 %></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_smoking, :class=> "input-mysize", :maxlength=>2 %></td>
-  </tr>
+     <th style="text-align:left"><%= ff.label :smoking, "Do you smoke?"%></th>
+     <th class= "center"><%= ff.label :packs_per_day, "How many packs per day?",:id=>"packs_per_day_label"%></th>
+     <th class= "center"><%= ff.label :years_been_smoking, "How many years have you been smoking?",:id=>"packs_per_day_label"%></th>
+   </tr>
+   <tr>
+     <td valign= "top" style= "text-align:left"><%= ff.check_box :smoking, :id=>"smoked"%></td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :packs_per_day, :id=>"packs_per_day", :class=> "input-mysize", :maxlength=>1%><td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :years_been_smoking, :id=>"years_been_smoking", :class=> "input-mysize", :maxlength=>2%></td>
+   </tr>
   </table>
   <br>
   <br>
@@ -105,12 +105,12 @@
    <tr>
     <td valign="top"> 
      <b> Allergies? </b>
-       <%= ff.check_box :allergies %>
+       <%= ff.check_box :allergies, :id=>"allergies" %>
     </td>
     <td style="padding:30px">
        If yes, please give the name of the drug and any reactions you have had to it. <br>
       <br>
-      <%= ff.text_area :allergy_description, :class=> "allergy" %>
+      <%= ff.text_area :allergy_description, :class=> "allergy", :id=>"allergy_description" %>
     </td>
    </tr> 
   </table>
@@ -257,7 +257,7 @@
   <%end%>
    <hr />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  %>
   </div>
 
 
