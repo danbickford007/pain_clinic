@@ -1,27 +1,26 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #before_action :autheticate_user!
 
   # GET /users
   # GET /users.json
-  def home
 
-  end
 
   def login
-    user = User.find_by_email_and_passcode(params[:email], params[:passcode])
+    user = User.find_by_email_and_encrypted_password(params[:email], params[:password])
     if user.present?
       session[:email] = params[:email]
       session[:id] = user.id
-      redirect_to dashboard_index_path
+      redirect_to new_user_session
     else
       flash[:error] = "FAILED TO LOGIN"
-      redirect_to home_path
+      redirect_to user_session
     end
   end
 
   def logout
     session[:email] = nil
-    redirect_to home_path
+    redirect_to destroy_user_session
   end
 
   def index
@@ -31,6 +30,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    set_user
   end
 
   # GET /users/new
@@ -90,6 +90,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :passcode)
+      params.require(:user).permit(:email, :passcode, :name)
     end
+
+  # protected
+
+  #   def configure_permitted_parameters
+  #     devise_parameter_sanitizer.for(:sign_up) << :name
+  #   end
 end

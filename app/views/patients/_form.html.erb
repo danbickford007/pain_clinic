@@ -1,4 +1,7 @@
-<h1 style="text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">New Patient Sign-Up</h1><br>
+<script>$("#daily_drinks, #daily_drinks_label, #yearly_drinks, #yearly_drinks_label,#packs_per_day, #packs_per_day_label, #years_been_smoking, #years_been_smoking_label,#allergy_description, .allergy_text").hide();
+</script>
+<div class="right image"><%= image_tag 'medical_logo.jpg' %></div><br />
+<h1 class="letters">New Patient Sign-Up</h1><br>
 
  <%= form_for(@patient) do |f| %>
    <% if @patient.errors.any? %>
@@ -13,33 +16,32 @@
     </div>
   <% end %>
   
-  <table style="width:1000px">
+  <table style="width:700px">
     <tr>
-      <td> Last Name: <%= f.text_field :last_name %></td>
-      <td> First name: <%= f.text_field :first_name %></td>
-      <td> Middle Intitial: <%= f.text_field :middle_initial,:class=>"input-mysize", :maxlength=>1 %></td>
+      <td><label>Last Name:</label><%= f.text_field :last_name %></td>
+      <td><label>First name:</label><%= f.text_field :first_name %></td>
+      <td><label>Middle Intitial:</label><%= f.text_field :middle_initial,:class=>"input-mysize", :maxlength=>1 %></td>
     </tr>
   </table>
   <hr />
-  <table style="width:1000px">
+  <table style="width:700px">
     <tr>
-      <td> Email: <%= f.text_field :email %></td>
-      <td> Marital Status: <%= f.text_field  :marital_status %></td>
-      <td> DOB: <%= f.text_field :dob %></td>
-    </tr/>
+      <td><label>Email:</label><%= f.text_field :email %></td>
+      <td><label>Marital Status:</label><%= f.text_field  :marital_status %></td>
+      <td><label>DOB:</label><%= f.text_field :dob, as: :date, 'data-behaviour' => 'datepicker' %></td>
+    </tr>
   </table>
   <hr />
-  <table style="width:1000px">
+  <table style="width:800px">
    <tr>
-      <td> Height: <%= f.number_field :height, :class=> "input-mysize", :maxlength=>4 %></td>
-      <td> Weight: <%= f.number_field :weight, :class=> "input-mysize", :maxlength=>4 %></td>
-      <td> Gender: ( M / F ) <%= f.text_field :gender, :class=> "input-mysize", :maxlength=>1 %></td>
-      <td> SSN: <%= f.number_field :ssn, :class=>"center", :maxlength=>9 %></td>
+      <td><label>Height:</label><%= f.text_field :height, :class=> "input-mysize", :maxlength=>4 %></td>
+      <td><label>Weight:</label><%= f.number_field :weight, :class=> "input-mysize", :maxlength=>4 %></td>
+      <td><label>Gender: ( M / F )</label><%= f.text_field :gender, :class=> "input-mysize", :maxlength=>1 %></td>
+      <td><label>SSN:</label><%= f.text_field :ssn, :class=>"center", :maxlength=>9 %></td>
    </tr>
   </table>
   <hr />
   <h3>Social / Family History</h3><br>  
-    
   <%= f.fields_for :patient_history do |ff|  %> 
    
   <table style="width:1000px"; valign="middle">
@@ -60,7 +62,7 @@
    </tr>
    <tr>
      <td valign= "top" style= "text-align:left"><%= ff.check_box :smoking, :id=>"smoked"%></td>
-     <td align="center" style= "text-align:center"><%= ff.number_field :packs_per_day, :id=>"packs_per_day", :class=> "input-mysize", :maxlength=>1%><td>
+     <td align="center" style= "text-align:center"><%= ff.number_field :packs_per_day, :id=>"packs_per_day", :class=> "input-mysize", :maxlength=>1%></td>
      <td align="center" style= "text-align:center"><%= ff.number_field :years_been_smoking, :id=>"years_been_smoking", :class=> "input-mysize", :maxlength=>2%></td>
    </tr>
   </table>
@@ -68,16 +70,16 @@
   <br>
   <table style="width:1000px">
    <tr>
-     <td> Illicit Drugs: <%= ff.text_area :illicit_drugs %></td>
-     <td> Religion: <%= ff.text_area :religion %></td>
-     <td> Siblings: <%= ff.text_area :sibling_description %></td>
+     <td><label>Illicit Drugs:</label><%= ff.text_area :illicit_drugs %></td>
+     <td><label>Religion:</label><%= ff.text_area :religion %></td>
+     <td><label>Siblings:</label><%= ff.text_area :sibling_description %></td>
    </tr>
   </table>
   <hr />
   <table style="width:1000px" >
     <tr>
      <thead style="text-align:left">
-      <th><h4>Past Medical History:</h4>List any hospitilizations, injuries or serious illnesses (i.e.; diabetes, high blood pressure, heart attack ect...)  </th>
+      <th><h4><label>Past Medical History:</label></h4>List any hospitilizations, injuries or serious illnesses (i.e.; diabetes, high blood pressure, heart attack ect...)  </th>
      </thead>
    </tr>
     <tbody style="text-align:left">
@@ -90,7 +92,7 @@
 <table style="width:1000px" >
     <tr>
      <thead style="text-align:left">
-      <th><h4>Past Surgical History:</h4>List each surgery along with the month and year procedure was performed.  </th>
+      <th><h4><label>Past Surgical History:</label></h4>List each surgery along with the month and year procedure was performed.  </th>
      </thead>
    </tr>
     <tbody style="text-align:left">
@@ -108,7 +110,7 @@
        <%= ff.check_box :allergies, :id=>"allergies" %>
     </td>
     <td style="padding:30px">
-       If yes, please give the name of the drug and any reactions you have had to it. <br>
+       <span  id="allergy_description" >If yes, please give the name of the drug and any reactions you have had to it.</span> <br>
       <br>
       <%= ff.text_area :allergy_description, :class=> "allergy", :id=>"allergy_description" %>
     </td>
@@ -134,7 +136,7 @@
 
   <%end%>
   <hr />
-  If you or a member of your family has suffered from any of the following please let us know by clicking the correct letter. Y-yes, N-no, F-family m  eber. If you answer yes or family member, please specify under chart in space provided, the details, (i.e.: you or relationship to you, dates, or    any other pertinent information.) <br>
+  If you or a member of your family has suffered from any of the following please let us know by clicking the correct letter. Y-yes, N-no, F-family member. If you answer yes or family member, please specify under chart in space provided, the details, (i.e.: you or relationship to you, dates, or any other pertinent information.) <br>
     
    <br/> 
   <%= f.fields_for :disease do |disease|  %>
@@ -257,7 +259,8 @@
   <%end%>
    <hr />
   <div class="actions">
-    <%= f.submit  %>
+    <%= f.submit 'Submit', :class => 'btn btn-primary active', :style => 'width: 120px; height:30px;'   %>
+    <%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary active', :style => 'width: 120px;'  %>
   </div>
 
 

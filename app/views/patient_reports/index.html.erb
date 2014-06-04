@@ -1,9 +1,9 @@
-<div class="left"><%= image_tag 'medical_logo.jpg' %></div>
-<h1 class="center" style="text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">Substances Used by Patients</h1>
-<table border="5" style="width:1400px">
+<div class="right image"><%= image_tag 'medical_logo.jpg'%></div><br>
+<h1 class="center letters" >Substances Used by Patients</h1><br>
+<table id="report" border="5" style="width:1400px">
 	<col width="140">
 	<thead>
-		<tr style="background-color:blue">
+		<tr style="background-color:#4169E1">
 			<th class="row">Patient name</th>
 			<th class="row">Drinks per day</th>
 			<th class="row">Years drinking</th>
@@ -14,8 +14,8 @@
 			<th class="row">Allergy description</th>
 		</tr>
 	</thead>
-	<tbody class="report_data">
-		<tr >
+	<tbody class="report_data report">
+		<tr>
 			<% @patient_substances.each do |patient| %>
 			<td><%= patient.last_name.capitalize+', '+patient.first_name.capitalize %></td>
 			<td class="center"><%= patient.drinks_per_day %></td>
@@ -31,4 +31,4 @@
 </table>
 <br />
 
-<%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary', :style => 'width: 120px;'  %>
+<%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary active', :style => 'width: 120px;' %><br><br>

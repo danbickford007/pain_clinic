@@ -1,4 +1,4 @@
-<h3>Intake for <%= @patient.to_s %></h3>
+<h3></h3><br>
 <%= form_for(@intake) do |f| %>
   <% if @intake.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +12,12 @@
     </div>
   <% end %>
 
-  <div style='width:1200px' class="field">
+  <div style='width:1200px margin-top:100px' class="field">
     <ul>
-      <li>Complaint 1:<%= f.text_field :complaint_1 %></li>
-      <li>Complaint 2:<%= f.text_field :complaint_2 %></li>
-      <li>Complaint 3:<%= f.text_field :complaint_3 %></li>
-      <li>Illness History:<%= f.text_field :illness_history %></li>
+      <li><label>Complaint 1:</label><%= f.text_field :complaint_1, :id=>"color" %></li>
+      <li><label>Complaint 2:</label><%= f.text_field :complaint_2 %></li>
+      <li><label>Complaint 3:</label><%= f.text_field :complaint_3 %></li>
+      <li><label>Illness History:</label><%= f.text_field :illness_history %></li>
     </ul>
   </div>
   <br />
@@ -28,49 +28,51 @@
       </tbody>
     </table>
   </div>
-  <hr />
+  <hr class="hr">
   <div style='margin-bottom:150px' class="field">
     <ul>
-      <li class='left'>Pain Now:<%= f.number_field :pain_now %></li>
-      <li class='left'>Least Pain One Week:<%= f.number_field :least_pain_one_week %></li>
-      <li class='left'>Worst Pain One Week:<%= f.number_field :worst_pain_one_week %></li>
-      <li class='left'>Average Pain Last Week:<%= f.number_field :average_pain_last_week %></li>
+      <li class='left'><label>Pain Now:</label><%= f.number_field :pain_now %></li>
+      <li class='left'><label>Least Pain One Week:</label><%= f.number_field :least_pain_one_week %></li>
+      <li class='left'><label>Worst Pain One Week:</label><%= f.number_field :worst_pain_one_week %></li>
+      <li class='left'><label>Average Pain Last Week:</label><%= f.number_field :average_pain_last_week %></li>
     </ul>
   </div>
-  <hr />
+  <hr class="hr">
   <div class="field" style="margin-bottom:150px">
     <ul>
-      <li class='left'>Pain Duration:<%= f.text_field :pain_duration %></li>
-      <li class='left'>Pain Timing:<%= f.text_field :pain_timing %></li>
-      <li class='left'>Context of Pain:<%= f.text_field :context_of_pain %></li>
-      <li class='left'>Modifying Factors:<%= f.text_field :modifying_factors %></li>
+      <li class='left'><label>Pain Duration:</label><%= f.text_field :pain_duration %></li>
+      <li class='left'><label>Pain Timing:</label><%= f.text_field :pain_timing %></li>
+      <li class='left'><label>Context of Pain:</label><%= f.text_field :context_of_pain %></li>
+      <li class='left'><label>Modifying Factors:</label><%= f.text_field :modifying_factors %></li>
     </ul>
   </div>
-  <hr />
-  <div class="field" style="margin-bottom:150px">
+  <hr class="hr">
+  <div class="field margin-line " style="margin-bottom:150px">
     <ul>
-      <li class='left'>Signs and Symptoms:<%= f.text_field :signs_and_sympotoms %></li>
-      <li class='left'>General Activity:<%= f.number_field :general_activity %></li>
-      <li class='left'>Mood:<%= f.number_field :mood %></li>
-      <li class='left'>Normal Work:<%= f.number_field :normal_work %></li>
+      <li class='left'><label>Signs and Symptoms:</label><%= f.text_field :signs_and_sympotoms %></li>
+      <li class='left'><label>General Activity:</label><%= f.number_field :general_activity %></li>
+      <li class='left'><label>Mood:</label><%= f.number_field :mood %></li>
+      <li class='left'><label>Normal Work:</label><%= f.number_field :normal_work %></li>
     </ul>
   </div>
-  <hr />
+  <hr class="hr">
   <div class="field" style='margin-bottom:150px'>
     <ul>
-      <li class='left'>Sleep:<%= f.number_field :sleep %></li>
-      <li class='left'>Enjoyment:<%= f.number_field :enjoyment %></li>
-      <li class='left'>concentration:<%= f.number_field :concentration %></li>
+      <li class='left'><label>Sleep:</label><%= f.number_field :sleep %></li>
+      <li class='left'><label>Enjoyment:</label><%= f.number_field :enjoyment %></li>
+      <li class='left'><label>concentration:</label><%= f.number_field :concentration %></li>
     </ul>
   </div>
-  <hr />
+  <hr class="hr">
   <div class="field" style='margin-bottom:150px'>
     <ul>
-      <li class='left'>current_pain_meds:<%= f.text_field :current_pain_meds %></li>
-      <li class='left'>interaction_with_others:<%= f.number_field :interaction_with_others %></li>
+      <li class='left'><label>current pain meds:</label><%= f.text_field :current_pain_meds %></li>
+      <li class='left'><label>interaction with others:</label><%= f.number_field :interaction_with_others %></li>
     </ul>
   </div>
-  <div class="actions">
-    <%= f.submit  %>
+    <%= f.hidden_field :patient_id, :value=>params[:patient_id] %>
+  <div class="actions" style="margin-left:30px;">
+    <%= f.submit 'Submit', :class => 'btn btn-primary active', :style => 'width: 120px; height:30px;'%>
+    <%= link_to 'Back', intakes_path, :class => 'btn btn-primary active', :style => 'width: 120px;'  %>
   </div>
 <% end %>

@@ -2,19 +2,22 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem 'blog', path: "blog"
+gem 'devise'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'nested_form'
 # Use SCSS for stylesheets
+gem 'bootstrap-datepicker-rails'
 gem "chartkick"
 gem 'sass-rails', '~> 4.0.0'
 gem 'therubyracer'
 gem 'less-rails'
 gem "twitter-bootstrap-rails" 
-
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'factory_girl_rails'
-gem 'pry'
+gem 'lazybox'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

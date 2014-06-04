@@ -1,13 +1,12 @@
-<h3>Search for a patient or create a new patient</h3>
+<h3 class="letters">Search for a patient or create a new patient</h3><br>
 <%= form_tag search_path, :remote=>true do %>
-  SSN:<%= text_field_tag :ssn %>
+  <span style="color:#BDB76B;"><label><b>SSN:</b></label></span><%= text_field_tag :ssn %>
+  <br><b>OR</b><br>
   <br />
-  or
+  <span style="color:#BDB76B;"><label><b>Last Name:</b></label></span><%= text_field_tag :last_name %>
   <br />
-  Last Name: <%= text_field_tag :last_name %>
-  <br />
-  <%= submit_tag 'search', :class=>'btn btn-primary' %>
-  <%= link_to 'New Patient', new_patient_path, :class => 'btn btn-primary' %>
-	<%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary', :style => 'width: 120px;'  %>
+  <%= submit_tag 'search', :class => 'btn btn-primary active', :style => 'width: 120px; height:30px;' %>
+  <%= link_to 'New Patient', new_patient_path, :class => 'btn btn-primary active' %>
+	<%= link_to 'Back', dashboard_index_path, :class => 'btn btn-primary active', :style => 'width: 120px;'  %>
 <% end %>
-<div id='results'></div>
+<div id='results' style="color:green"></div>

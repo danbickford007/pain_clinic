@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512181901) do
+ActiveRecord::Schema.define(version: 20140528133230) do
 
   create_table "addresses", force: true do |t|
     t.string   "addr_one"
@@ -24,12 +24,19 @@ ActiveRecord::Schema.define(version: 20140512181901) do
     t.datetime "updated_at"
   end
 
-  create_table "cats", force: true do |t|
-    t.string   "eyes"
-    t.integer  "toes"
+  create_table "blog_comments", force: true do |t|
+    t.integer  "post_id"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "nose"
+  end
+
+  create_table "blog_posts", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
   create_table "diseases", force: true do |t|
@@ -84,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140512181901) do
     t.string   "current_pain_meds"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "patient_id"
   end
 
   create_table "intakes_pain_qualities", force: true do |t|
@@ -160,11 +168,28 @@ ActiveRecord::Schema.define(version: 20140512181901) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "passcode"
+  create_table "user_permissions", force: true do |t|
+    t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "name",                   limit: 75
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

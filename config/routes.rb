@@ -1,6 +1,7 @@
 PainClinic::Application.routes.draw do
 
-  resources :patients 
+  devise_for :users
+  resources :patients, :has_many => :intakes
 
   get "doctors_dashboard/index"
   get "doctors_dashboard/new"
@@ -22,6 +23,35 @@ PainClinic::Application.routes.draw do
   end
 
   resources :users
+  resources :user_permissions
+  post "user_permissions/new"
+
+
+ #  resources :patients 
+ # resources :user_permissions
+ #    #post "user_permissions/new"
+
+ #  get "doctors_dashboard/index"
+ #  get "doctors_dashboard/new"
+ #  get "doctors_dashboard/create"
+ #  scope :path=>"patient_reports", :controller=>"patient_reports" do
+ #    get "patient_reports/index"
+ #  end
+ #  scope :path=>'intakes', :controller=>'intakes' do
+ #    post 'search'
+ #  end
+
+ #  resources :intakes
+
+ #  get "dashboard/index"
+ #  root :to=>"users#dashboard"
+
+ #  scope :path=>'users', :controller=>'users' do
+ #    get 'home'
+ #    get 'logout'
+ #    post 'login'
+ #  end
+  mount Blog::Engine, at: "/blog"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

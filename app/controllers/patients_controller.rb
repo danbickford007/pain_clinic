@@ -1,8 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy,:patient_setup]
 
-
-
   def patient_setup
     @patient_history = @patient.patient_history
     @patients_medical_equipment = @patient.patients_medical_equipment
@@ -16,6 +14,7 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @patient.update_attributes(:status_id => Patient.patient_status(@patient))
 
   end
 

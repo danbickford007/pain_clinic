@@ -1,5 +1,6 @@
-<h1>New intake</h1>
+<div class="left image" style="margin-right:10px"><%= image_tag 'medical_logo.jpg' %></div><br>
+<h1 class="letters">New intake - <%= @patient.to_s %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', intakes_path, :class => 'btn btn-primary', :style => 'width: 120px;'  %>
+
