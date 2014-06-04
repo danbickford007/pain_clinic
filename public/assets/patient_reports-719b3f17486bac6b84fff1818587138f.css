@@ -1,0 +1,11 @@
+.report_data {
+  color: black;
+  background-color: white; }
+
+.row {
+  padding: 5px; }
+
+.image {
+  background: #ffffff;
+  padding: 8px;
+  border: 3px solid #999999; }

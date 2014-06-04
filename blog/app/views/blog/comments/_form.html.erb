@@ -1,0 +1,14 @@
+<h3>New comment</h3>
+<%= form_for [@post, @post.comments.build] do |f| %>
+
+  <div>
+    <%= f.label :text, "Please enter any comments below:", :id=>"text" %>
+    <%= f.text_area :text, :rows=> 5, :class=>"span6" %>
+  </div>
+<div>
+  <%= f.submit 'Submit', :class => 'btn btn-primary active', :style => 'width: 90px; height: 30px;' %> |
+  <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary active', :style => 'width: 60px;' %> |
+	<%= link_to 'Back', posts_path, :class => 'btn btn-primary active', :style => 'width: 60px;' %> |
+	<%= link_to 'Home', main_app.dashboard_index_path, :class => 'btn btn-primary active', :style => 'width: 60px;' %>
+</div>
+<% end %>

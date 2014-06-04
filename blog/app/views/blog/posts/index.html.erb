@@ -1,0 +1,37 @@
+<div style="margin-left:50px;">
+<h1 style="padding:5px 25px 5px 25px;  text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">Listing posts</h1>
+
+<br>
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-decoration:underline; text-align:left; color:#BDB76B; padding: 5px 25px 5px 25px;">Title</th>
+      <th style="text-decoration:underline; text-align:left; color:#BDB76B;">Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td style="font-family: times; font-size: 25px; padding: 5px 25px 5px 25px;"><%= post.title %></td>
+        <td style="font-size: 14px; width: 300px; font-style: italic;"><%= post.text %></td>
+        <td><%= link_to 'Show', post, :class => 'btn btn-mini active', :style=>"width:50px;" %></td>
+        <td><%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-mini active', :style=>"width:50px;" %></td>
+        <td><%= link_to 'Destroy', post,:class => 'btn btn-mini btn-danger active', :style=>"width:50px;", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div style="padding:5px 25px 5px 25px;" >
+<%= link_to 'New Post', new_post_path, :class => 'btn btn-primary active' %> |
+<%= link_to 'Dashboard', main_app.dashboard_index_path, :class => 'btn btn-primary active' %>
+</div>
+</div>

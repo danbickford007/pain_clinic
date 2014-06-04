@@ -1,0 +1,35 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div style="padding:5px 25px 5px 25px;">
+  <div class="field">
+    <%= f.label :author_name %><br>
+    <%= f.text_field :author_name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_area :text, :rows=> 5, :class=>"span6" %>
+  </div>
+  <div >
+  <div>
+    <%= link_to 'Back', posts_path, :class => 'btn btn-primary active', :style => 'width: 60px;' %> |
+    <%= link_to 'Show', @post, :class => 'btn btn-primary active', :style => 'width: 60px;' %> |
+    <%= f.submit 'Submit', :class => 'btn btn-primary active', :style => 'width: 90px; height: 30px;' %>
+  </div>
+    
+
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,53 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+strong {font-size: 25px; color:#4169E1;}
+
+h1 {
+	color:#4169E1;
+}
+
+.ptext {font-family: times;
+				font-size: 25px;
+
+				}
+
+h3 {
+	color:#BDB76B;
+	font-size: 18px;
+}
+
+#inputmedium {
+  width:500px;
+  height:160px; 
+}
+
+#text {
+	font-size: 15px;
+}
+
+.listText {
+	font-family: times;
+	font-size: 25px;
+	padding: 5px 25px 5px 25px;
+
+}
+
+.text {
+	font-size: 14px; 
+	width: 300px;
+	font-style: italic;
+}
+
+.center{
+	margin-left:120px;
+  float:center;
+  font-size: 45px;
+}
+
+#btncolor {
+	color:blue;
+}

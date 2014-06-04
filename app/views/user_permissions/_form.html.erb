@@ -1,0 +1,24 @@
+<%= form_for(@user_permission) do |f| %>
+  <% if @user_permission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_permission.errors.count, "error") %> prohibited this user_permission from being saved:</h2>
+
+      <ul>
+      <% @user_permission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Permission, :style=>"color:#BDB76B; font-weight: bold;" %>
+    <%= f.text_field :description %>
+  </div><br>
+  <% hidden_field_tag :user_id %>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn btn-primary active', :style => 'width: 100px; height: 30px;' %> |
+    <%= link_to 'Show', @user_permission, :class => 'btn btn-primary active', :style => 'width: 80px;' %> |
+    <%= link_to 'Back', user_permissions_path, :class => 'btn btn-primary active', :style => 'width: 80px;' %><br><br>
+  </div>
+<% end %>

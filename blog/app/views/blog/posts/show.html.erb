@@ -1,0 +1,22 @@
+<div style="margin-left:50px;">
+<h1 style="font-size 25px; padding:5px 25px 5px 25px; text-shadow: 0 3px 0 #b2a98f,0 14px 10px rgba(0,0,0,0.15), 0 24px 2px rgba(0,0,0,0.1), 0 34px 30px rgba(0,0,0,0.1);">Blog Page</h1><br>
+
+<p id="notice"><%= notice %></p>
+
+<div style="padding:5px 25px 5px 25px;">
+<p>
+  <strong style="font-family: times; font-size: 25px; ">Author:  </strong>
+  <span class="ptext" style="font-family: times; font-style: italic; font-size: 25px;"><%= @post.author %></span>
+</p>
+  <strong style="font-family: times; font-size: 25px;">Title:  </strong>
+  <span class="ptext" style="font-family: times; font-style: italic; font-size: 25px;"><%= @post.title %></span>
+
+<p>
+  <strong style="font-family: times; font-size: 25px;">Text:  </strong>
+  <span class="ptext" style="font-family: times; font-style: italic; font-size: 25px;"><%= @post.text %></span>
+</p><br>
+<h3>Comments</h3>
+<%= render @post.comments %><br>
+<%= render "blog/comments/form" %><br>
+</div>
+</div>

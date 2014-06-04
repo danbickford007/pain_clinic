@@ -1,0 +1,30 @@
+.input-mysize {
+  width: 50px;
+  text-align: center; }
+
+.input-extralarge {
+  width: 850px;
+  height: 100px; }
+
+.input-medium {
+  width: 660px;
+  height: 100px; }
+
+.center {
+  text-align: center; }
+
+.allergy {
+  width: 750px;
+  height: 100px; }
+
+.verticalLine {
+  border-left: thick solid #ff000; }
+
+strong {
+  color: #BDB76B; }
+
+h1 {
+  color: #4169E1; }
+
+hr {
+  width: 85%; }

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="letters">Permission</h1>
+
+<p>
+  <strong>Permission:</strong>
+  <%= @user_permission.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_permission.user %>
+</p><br>
+
+<%= link_to 'Edit', edit_user_permission_path(@user_permission), :class => 'btn btn-primary active' %> |
+<%= link_to 'Back', user_permissions_path, :class => 'btn btn-primary active' %><br><br>
