@@ -39,7 +39,7 @@ validates :marital_status, presence: true
     "#{first_name} #{last_name}"
   end
 
-  def test
+  def newTest
   end
 
   def self.patient_status(patient)
